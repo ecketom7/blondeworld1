@@ -14,6 +14,9 @@ body {
   text-align: center;
   position: relative;
   padding: 20px;
+  display: flex;
+  flex-direction: column; /* Alles untereinander */
+  align-items: center;
 }
 
 /* Pfeil oben rechts */
@@ -24,13 +27,13 @@ body {
   width: 50px;
 }
 
-/* Profilbild rund */
+/* Profilbild rund oben */
 .profile-pic {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Abstand zur Textbox */
   border: 3px solid #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
@@ -40,7 +43,6 @@ body {
   background: #fff;
   border-radius: 20px;
   padding: 20px 30px;
-  display: inline-block;
   max-width: 300px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
@@ -56,4 +58,3 @@ body {
   color: #333;
   margin: 5px 0;
 }
-
