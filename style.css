@@ -22,11 +22,12 @@ body {
 /* Pfeil oben rechts */
 .arrow {
   position: absolute;
-  top: -5px;   /* weiter oben */
-  right: -5px; /* weiter rechts */
+  top: 0;      /* direkt oben */
+  right: 0;    /* direkt rechts */
   width: 55px;
   animation: bounce 1.5s infinite, glow 2s infinite alternate;
 }
+
 
 /* Pfeil Animation */
 @keyframes bounce {
