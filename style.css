@@ -22,7 +22,7 @@ body {
 /* Pfeil oben rechts in der Ecke */
 .arrow {
   position: absolute;
-  top: 0;      
+  top: -50px;      
   right: 0;    
   width: 65px;    /* Größe angepasst */
   animation: bounce 1.5s infinite, glow 2s infinite alternate;
