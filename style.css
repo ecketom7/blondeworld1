@@ -19,22 +19,33 @@ body {
   align-items: center;
 }
 
-/* Pfeil oben rechts */
+/* Pfeil oben rechts in der Ecke */
 .arrow {
   position: absolute;
-  top: 0;      /* direkt oben */
-  right: 0;    /* direkt rechts */
+  top: 0;      
+  right: 0;    
   width: 55px;
   animation: bounce 1.5s infinite, glow 2s infinite alternate;
 }
 
-
-/* Pfeil Animation */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-7px); }
+/* Pfeil oben rechts auf Textbox */
+.arrow-box {
+  position: absolute;
+  top: -15px;      /* leicht über der Box */
+  right: -15px;    /* leicht rechts von der Box */
+  width: 40px;
+  transform: rotate(-20deg); /* zeigt leicht auf ersten Pfeil */
+  animation: bounce 1.5s infinite alternate;
+  z-index: 10;     /* über der Box */
 }
 
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Glow Animation nur für Pfeil in Ecke */
 @keyframes glow {
   0% { filter: drop-shadow(0 0 0px #ff69b4); }
   100% { filter: drop-shadow(0 0 15px #ff69b4); }
@@ -116,4 +127,3 @@ body {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
 }
-
