@@ -19,12 +19,12 @@ body {
   align-items: center;
 }
 
-/* Pfeil oben rechts in der Ecke */
+/* Pfeil oben rechts in der Ecke (TikTok-⋯) */
 .arrow {
   position: absolute;
   top: 0;      
   right: 0;    
-  width: 55px;
+  width: 65px;    /* größer als vorher */
   animation: bounce 1.5s infinite, glow 2s infinite alternate;
 }
 
@@ -33,11 +33,12 @@ body {
   position: absolute;
   top: -15px;      /* leicht über der Box */
   right: -15px;    /* leicht rechts von der Box */
-  width: 40px;
-  transform: rotate(-20deg); /* zeigt leicht auf ersten Pfeil */
+  width: 40px;     /* kleiner als der erste Pfeil */
+  transform: rotate(-20deg); 
   animation: bounce 1.5s infinite alternate;
-  z-index: 10;     /* über der Box */
+  z-index: 10;    
 }
+
 
 /* Bounce Animation */
 @keyframes bounce {
