@@ -11,13 +11,10 @@
 
   <div class="container">
 
-    <!-- Pfeil -->
     <img src="arrow.png" class="arrow" alt="Arrow">
 
-    <!-- Profilbild -->
     <img src="profile.jpg" class="profile-pic" alt="Savannah">
 
-    <!-- Textbox -->
     <div class="text-box">
       <h1>Hey my loves! 🥰💖 I’m so happy to have you all!</h1>
       <p>Don’t miss out, check it out now! ✨👀</p>
@@ -32,15 +29,15 @@
 
   </div>
 
-  <!-- 🧠 Visit-Logik -->
+  <!-- 🔒 First visit / second visit logic -->
   <script>
-    const alreadyVisited = localStorage.getItem("savannahVisited");
+    const hasVisited = localStorage.getItem("savannahVisited");
 
-    if (alreadyVisited) {
-      // 2. Aufruf → weiter zu Domain B
-      window.location.href = " https://ecketom7.github.io/savannah.github.io/";
+    if (hasVisited) {
+      // 2. Öffnung → Redirect-Domain
+      window.location.href = "https://ecketom7.github.io/savannah.github.io/";
     } else {
-      // 1. Aufruf → Landingpage
+      // 1. Öffnung → Landingpage
       localStorage.setItem("savannahVisited", "true");
     }
   </script>
