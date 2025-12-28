@@ -27,7 +27,6 @@ body {
   opacity: 0;
 }
 
-/* Container Fade-In */
 @keyframes containerFade {
   to { opacity: 1; }
 }
@@ -51,7 +50,6 @@ body {
   transform: rotate(-15deg) scale(1.1);
 }
 
-/* Bounce + Glow */
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-7px); }
@@ -146,9 +144,15 @@ body {
   color: #e6007e;
   font-weight: bold;
   animation: pulse 1.5s infinite, glowText 2s infinite alternate;
+  margin-top: 10px;
 }
 
-/* Open in browser extra aufmerksam */
+/* Punkt 2 – Open in browser in einer Zeile */
+.text-box .point2 {
+  white-space: nowrap;  /* verhindert Zeilenumbruch */
+}
+
+/* Open in browser extra auffällig */
 .text-box .open-browser {
   display: inline-block;
   font-size: 17px;
@@ -156,8 +160,6 @@ body {
   color: #ff3399;
   text-shadow: 0 0 5px #ff66bb, 0 0 10px #ff66bb;
   animation: pulseBrowser 1.2s infinite alternate;
-  margin-top: 6px;
-  display: block;
 }
 
 /* =====================
@@ -186,4 +188,3 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
