@@ -31,7 +31,7 @@
 
   </div>
 
-  <!-- 🔥 SMART REDIRECT LOGIC -->
+  <!-- 🔥 AUTO-RELOAD + REDIRECT -->
   <script>
     function isInAppBrowser() {
       const ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -45,29 +45,17 @@
       );
     }
 
-    function tryRedirect() {
-      const visited = sessionStorage.getItem("savannahSession");
-      if (!isInAppBrowser() && visited) {
-        window.location.href = "https://ecketom7.github.io/savannah.github.io/";
-      }
-    }
+    // Nur im echten Browser reloaden, TikTok ignorieren
+    if (!isInAppBrowser() && !sessionStorage.getItem("reloaded")) {
+      sessionStorage.setItem("reloaded", "true");
+      window.location.reload();
+    } 
 
-    // Direkt prüfen
-    tryRedirect();
-
-    // Wenn Seite nach "Open in browser" sichtbar wird
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "visible") {
-        tryRedirect();
-      }
-    });
-
-    // Session merken (reset bei Schließen)
-    if (!sessionStorage.getItem("savannahSession")) {
-      sessionStorage.setItem("savannahSession", "true");
+    // Nach Reload → Redirect prüfen
+    if (!isInAppBrowser()) {
+      window.location.href = "https://ecketom7.github.io/savannah.github.io/";
     }
   </script>
 
 </body>
 </html>
-
