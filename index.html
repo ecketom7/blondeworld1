@@ -2,29 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Savannah's Page</title>
+  <title>Savannah</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <div class="container">
 
-    <!-- Pfeil oben rechts in der Ecke (zeigt auf TikTok-⋯) -->
-    <img src="arrow.png" class="arrow" alt="Arrow">
+    <!-- Pfeil oben rechts -->
+    <img src="arrow.png" class="arrow" alt="Arrow pointing to menu">
 
-    <!-- Profilbild oben -->
-    <img src="profile.png" class="profile-pic" alt="Savannah">
+    <!-- Profilbild -->
+    <img src="profile.jpg" class="profile-pic" alt="Savannah">
 
     <!-- Textbox -->
     <div class="text-box">
       <h1>Hey my loves! 🥰💖 I’m so happy to have you all!</h1>
       <p>Don’t miss out, check it out now! ✨👀</p>
-      <p class="text">Tap the three dots " ⋯ " in the top right corner </p>
+
+      <p class="text">Tap the three dots ⋯ in the top right corner and</p>
       <p class="text open-browser">"<strong>Open in browser</strong>" 🚀</p>
     </div>
 
   </div>
+
+  <!-- 🔁 Redirect Script -->
+  <script>
+    const isTikTok = navigator.userAgent.includes("TikTok");
+
+    if (!isTikTok) {
+      setTimeout(() => {
+        window.location.href = "";
+      }, 1200);
+    }
+  </script>
 
 </body>
 </html>
