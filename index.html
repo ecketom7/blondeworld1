@@ -10,9 +10,7 @@
 <body>
 
   <div class="container">
-
     <img src="arrow.png" class="arrow" alt="Arrow">
-
     <img src="profile.png" class="profile-pic" alt="Savannah">
 
     <div class="text-box">
@@ -26,23 +24,35 @@
         "<strong>Open in browser</strong>" 🚀
       </p>
     </div>
-
   </div>
 
-  <!-- 🔒 First visit / second visit logic -->
   <script>
-    const hasVisited = localStorage.getItem("savannahVisited");
+    function isInAppBrowser() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      return (
+        ua.includes("TikTok") ||
+        ua.includes("Instagram") ||
+        ua.includes("FBAN") ||
+        ua.includes("FBAV") ||
+        ua.includes("WebView") ||
+        ua.includes("wv")
+      );
+    }
 
-    if (hasVisited) {
-      // 2. Öffnung → Redirect-Domain
+    const visited = localStorage.getItem("savannahVisited");
+
+    if (!isInAppBrowser() && visited) {
+      // ✅ NUR echter Browser + 2. Besuch
       window.location.href = "https://ecketom7.github.io/savannah.github.io/";
     } else {
-      // 1. Öffnung → Landingpage
+      // 1. Besuch ODER TikTok → nur merken
       localStorage.setItem("savannahVisited", "true");
     }
   </script>
 
 </body>
 </html>
+
+
 
 
