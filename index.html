@@ -11,11 +11,11 @@
 
   <div class="container">
 
-    <!-- Pfeil oben rechts -->
-    <img src="arrow.png" class="arrow" alt="Arrow pointing to menu">
+    <!-- Pfeil -->
+    <img src="arrow.png" class="arrow" alt="Arrow">
 
     <!-- Profilbild -->
-    <img src="profile.png" class="profile-pic" alt="Savannah">
+    <img src="profile.jpg" class="profile-pic" alt="Savannah">
 
     <!-- Textbox -->
     <div class="text-box">
@@ -32,35 +32,20 @@
 
   </div>
 
-  <!-- 🔒 TikTok-sicherer Redirect -->
+  <!-- 🧠 Visit-Logik -->
   <script>
-    function isInAppBrowser() {
-      const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const alreadyVisited = localStorage.getItem("savannahVisited");
 
-      return (
-        ua.includes("TikTok") ||
-        ua.includes("Instagram") ||
-        ua.includes("FBAN") ||
-        ua.includes("FBAV") ||
-        ua.includes("Line") ||
-        ua.includes("Twitter") ||
-        ua.includes("Snapchat") ||
-        ua.includes("Pinterest") ||
-        ua.includes("WebView") ||
-        ua.includes("wv")
-      );
-    }
-
-    if (!isInAppBrowser()) {
-      // ✅ NUR echter Browser → Weiterleitung
-      setTimeout(() => {
-        window.location.href = "";
-      }, 1500);
+    if (alreadyVisited) {
+      // 2. Aufruf → weiter zu Domain B
+      window.location.href = "";
+    } else {
+      // 1. Aufruf → Landingpage
+      localStorage.setItem("savannahVisited", "true");
     }
   </script>
 
 </body>
 </html>
-
 
 
