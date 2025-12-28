@@ -1,63 +1,70 @@
-/* ===========================
-   Grundlegendes Styling
-   =========================== */
+/* =====================
+   Grunddesign & Background
+===================== */
 body {
   margin: 0;
-  background: linear-gradient(-45deg, #ffe6f0, #fff0f5, #ffd9e8, #ffe6f0);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: linear-gradient(-45deg, #ffe6f0, #fff0f5, #ffd9e8, #ffe6f0);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  overflow: hidden;
 }
 
-/* ===========================
-   Container für alles
-   =========================== */
+/* =====================
+   Container
+===================== */
 .container {
   text-align: center;
   position: relative;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: containerFade 1.2s ease forwards;
+  opacity: 0;
 }
 
-/* ===========================
+/* Container Fade-In */
+@keyframes containerFade {
+  to { opacity: 1; }
+}
+
+/* =====================
    Pfeil oben rechts
-   =========================== */
+===================== */
 .arrow {
   position: absolute;
-  top: 10px;
+  top: 15px;
   right: 20px;
   width: 65px;
   border-radius: 15px;
-  animation: bounce 1.5s infinite, glow 2s infinite alternate;
-  cursor: pointer;
-  transition: transform 0.3s;
+  animation: bounce 1.5s infinite, glow 2s infinite alternate, arrowFade 1.5s ease forwards;
+  opacity: 0;
 }
+
+@keyframes arrowFade { to { opacity: 1; } }
 
 .arrow:hover {
   transform: rotate(-15deg) scale(1.1);
 }
 
-/* Bounce Animation */
+/* Bounce + Glow */
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-7px); }
 }
 
-/* Glow Animation für Pfeil */
 @keyframes glow {
   0% { filter: drop-shadow(0 0 0px #ff69b4); }
   100% { filter: drop-shadow(0 0 15px #ff69b4); }
 }
 
-/* ===========================
+/* =====================
    Profilbild
-   =========================== */
+===================== */
 .profile-pic {
   width: 130px;
   height: 130px;
@@ -66,7 +73,13 @@ body {
   margin-bottom: 25px;
   border: 4px solid #fff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transform: translateY(-50px);
+  opacity: 0;
+  animation: picFade 1s forwards 0.5s;
+}
+
+@keyframes picFade {
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .profile-pic:hover {
@@ -74,21 +87,23 @@ body {
   box-shadow: 0 6px 20px rgba(255,105,180,0.4);
 }
 
-/* ===========================
+/* =====================
    Textbox
-   =========================== */
+===================== */
 .text-box {
   background: linear-gradient(135deg, #fff0f5, #ffe6f0);
   border-radius: 30px;
   padding: 30px 40px;
   max-width: 320px;
   box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-  transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
   overflow: hidden;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: boxFade 1s forwards 1s;
 }
 
-/* Shine-Animation für Textbox */
+/* Shine Effekt */
 .text-box::before {
   content: '';
   position: absolute;
@@ -101,51 +116,53 @@ body {
   animation: shine 2s infinite;
 }
 
+@keyframes boxFade {
+  to { transform: translateY(0); opacity: 1; }
+}
+
 @keyframes shine {
   0% { transform: rotate(45deg) translateX(-100%); }
   100% { transform: rotate(45deg) translateX(100%); }
 }
 
-.text-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 35px rgba(0,0,0,0.3);
-}
-
-/* Text in Textbox */
+/* =====================
+   Text Styling
+===================== */
 .text-box h1 {
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 12px;
   color: #333;
-  line-height: 1.4;
   font-weight: 700;
 }
 
 .text-box p {
-  font-size: 15px;
+  font-size: 16px;
   color: #555;
   margin: 6px 0;
 }
 
 /* Hinweistext pulsierend */
 .text-box .text {
-  color: #e6007e; /* auffälliges Pink */
+  color: #e6007e;
   font-weight: bold;
   animation: pulse 1.5s infinite, glowText 2s infinite alternate;
 }
 
-/* Open in browser extra hervorheben */
+/* Open in browser extra aufmerksam */
 .text-box .open-browser {
   display: inline-block;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   color: #ff3399;
   text-shadow: 0 0 5px #ff66bb, 0 0 10px #ff66bb;
   animation: pulseBrowser 1.2s infinite alternate;
+  margin-top: 6px;
+  display: block;
 }
 
-/* ===========================
+/* =====================
    Animations
-   =========================== */
+===================== */
 @keyframes pulse {
   0% { opacity: 1; }
   50% { opacity: 0.6; }
@@ -169,3 +186,4 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
