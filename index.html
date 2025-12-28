@@ -10,9 +10,14 @@
 <body>
 
   <div class="container">
-    <img src="arrow.png" class="arrow" alt="Arrow">
-    <img src="profile.png" class="profile-pic" alt="Savannah">
 
+    <!-- Pfeil oben rechts -->
+    <img src="arrow.png" class="arrow" alt="Arrow">
+
+    <!-- Profilbild -->
+    <img src="profile.jpg" class="profile-pic" alt="Savannah">
+
+    <!-- Textbox -->
     <div class="text-box">
       <h1>Hey my loves! 🥰💖 I’m so happy to have you all!</h1>
       <p>Don’t miss out, check it out now! ✨👀</p>
@@ -24,8 +29,10 @@
         "<strong>Open in browser</strong>" 🚀
       </p>
     </div>
+
   </div>
 
+  <!-- 🧠 SESSION-LOGIK (reset bei Schließen) -->
   <script>
     function isInAppBrowser() {
       const ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -39,20 +46,19 @@
       );
     }
 
-    const visited = localStorage.getItem("savannahVisited");
+    const sessionVisited = sessionStorage.getItem("savannahSession");
 
-    if (!isInAppBrowser() && visited) {
-      // ✅ NUR echter Browser + 2. Besuch
+    if (!isInAppBrowser() && sessionVisited) {
+      // ✅ echter Browser + gleicher Tab → Redirect
       window.location.href = "https://ecketom7.github.io/savannah.github.io/";
     } else {
-      // 1. Besuch ODER TikTok → nur merken
-      localStorage.setItem("savannahVisited", "true");
+      // 1. Öffnung oder TikTok → Session merken
+      sessionStorage.setItem("savannahSession", "true");
     }
   </script>
 
 </body>
 </html>
-
 
 
 
