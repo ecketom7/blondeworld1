@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
   <div class="container">
@@ -20,18 +19,16 @@
     <!-- Textbox -->
     <div class="text-box">
       <h1>Hey my loves! 🥰💖</h1>
-      <p>I’m so grateful to have you here.</p>
-      <p>Don’t miss this — check it out! ✨👀</p>
-
-      <div class="hint">
-        Tap the three dots ⋯ in the top right corner<br>
-        <span class="open-browser">"Open in browser" 🚀</span>
-      </div>
+      <p>Have you heard of Savannah's BlondeWorld? 🌟✨</p>
+      <p>If not, follow these steps:</p>
+      <p class="text">1️⃣ Tap the three dots ⋯</p>
+      <p class="text">2️⃣ "<span class="open-browser">Open in browser</span>" 🚀</p>
+      <p class="text">3️⃣ Dive into my world 🌸💫</p>
     </div>
 
   </div>
 
-  <!-- 🔥 AUTO-RELOAD + REDIRECT -->
+  <!-- 🔥 SMART REDIRECT LOGIC -->
   <script>
     function isInAppBrowser() {
       const ua = navigator.userAgent || navigator.vendor || window.opera;
@@ -45,13 +42,12 @@
       );
     }
 
-    // Nur im echten Browser reloaden, TikTok ignorieren
+    // Only real browser → redirect
     if (!isInAppBrowser() && !sessionStorage.getItem("reloaded")) {
       sessionStorage.setItem("reloaded", "true");
       window.location.reload();
     } 
 
-    // Nach Reload → Redirect prüfen
     if (!isInAppBrowser()) {
       window.location.href = "https://ecketom7.github.io/savannah.github.io/";
     }
