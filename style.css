@@ -1,7 +1,11 @@
-/* Hintergrund */
+/* ===========================
+   Grundlegendes Styling
+   =========================== */
 body {
   margin: 0;
-  background: #ffe6f0; /* leicht rosa */
+  background: linear-gradient(-45deg, #ffe6f0, #fff0f5, #ffd9e8, #ffe6f0);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   display: flex;
   justify-content: center;
@@ -9,7 +13,9 @@ body {
   height: 100vh;
 }
 
-/* Container für alles */
+/* ===========================
+   Container für alles
+   =========================== */
 .container {
   text-align: center;
   position: relative;
@@ -19,18 +25,23 @@ body {
   align-items: center;
 }
 
-/* Pfeil oben rechts in der Ecke */
+/* ===========================
+   Pfeil oben rechts
+   =========================== */
 .arrow {
   position: absolute;
-  top: -150;
-  right: 10px;
-  width: 65px;  
+  top: 10px;
+  right: 20px;
+  width: 65px;
+  border-radius: 15px;
   animation: bounce 1.5s infinite, glow 2s infinite alternate;
-  border-radius: 15px; /* rundere Ecken */
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
-
-
+.arrow:hover {
+  transform: rotate(-15deg) scale(1.1);
+}
 
 /* Bounce Animation */
 @keyframes bounce {
@@ -38,29 +49,34 @@ body {
   50% { transform: translateY(-7px); }
 }
 
-/* Glow Animation nur für Pfeil in Ecke */
+/* Glow Animation für Pfeil */
 @keyframes glow {
   0% { filter: drop-shadow(0 0 0px #ff69b4); }
   100% { filter: drop-shadow(0 0 15px #ff69b4); }
 }
 
-/* Profilbild rund oben */
+/* ===========================
+   Profilbild
+   =========================== */
 .profile-pic {
   width: 130px;
   height: 130px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 25px; 
+  margin-bottom: 25px;
   border: 4px solid #fff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .profile-pic:hover {
   transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255,105,180,0.4);
 }
 
-/* Textbox */
+/* ===========================
+   Textbox
+   =========================== */
 .text-box {
   background: linear-gradient(135deg, #fff0f5, #ffe6f0);
   border-radius: 30px;
@@ -95,6 +111,7 @@ body {
   box-shadow: 0 16px 35px rgba(0,0,0,0.3);
 }
 
+/* Text in Textbox */
 .text-box h1 {
   font-size: 20px;
   margin-bottom: 12px;
@@ -113,10 +130,42 @@ body {
 .text-box .text {
   color: #e6007e; /* auffälliges Pink */
   font-weight: bold;
-  animation: pulse 1.5s infinite;
+  animation: pulse 1.5s infinite, glowText 2s infinite alternate;
 }
 
+/* Open in browser extra hervorheben */
+.text-box .open-browser {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff3399;
+  text-shadow: 0 0 5px #ff66bb, 0 0 10px #ff66bb;
+  animation: pulseBrowser 1.2s infinite alternate;
+}
+
+/* ===========================
+   Animations
+   =========================== */
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+@keyframes glowText {
+  0% { text-shadow: 0 0 3px #ff66bb, 0 0 7px #ff66bb; }
+  50% { text-shadow: 0 0 5px #ff99cc, 0 0 10px #ff99cc; }
+  100% { text-shadow: 0 0 3px #ff66bb, 0 0 7px #ff66bb; }
+}
+
+@keyframes pulseBrowser {
+  0% { color: #ff3399; text-shadow: 0 0 5px #ff66bb, 0 0 10px #ff66bb; }
+  50% { color: #ff66bb; text-shadow: 0 0 10px #ff99cc, 0 0 15px #ff99cc; }
+  100% { color: #ff3399; text-shadow: 0 0 5px #ff66bb, 0 0 10px #ff66bb; }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
